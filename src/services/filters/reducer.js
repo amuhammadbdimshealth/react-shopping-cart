@@ -1,6 +1,7 @@
 import { UPDATE_FILTER } from './actionTypes';
 
 const initialState = {
+  Hello: "Arif",
   item: []
 };
 

@@ -4,7 +4,7 @@ import rootReducer from './reducers';
 
 export default initialState => {
   initialState =
-    JSON.parse(window.localStorage.getItem('state')) || initialState;
+    JSON.parse(window.localStorage.getItem('state_arif')) || initialState;
   const middleware = [thunk];
 
   const store = createStore(
@@ -12,8 +12,8 @@ export default initialState => {
     initialState,
     compose(
       applyMiddleware(...middleware)
-      /* window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__() */
+       ,window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__() 
     )
   );
 
@@ -24,7 +24,7 @@ export default initialState => {
       total: state.total
     };
 
-    window.localStorage.setItem('state', JSON.stringify(persist));
+    window.localStorage.setItem('state_arif', JSON.stringify(persist));
   });
 
   return store;
